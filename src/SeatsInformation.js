@@ -11,15 +11,15 @@ export default function SeatsInformation() {
         <StyledSeatsInformation>
             <div>
                 <Botao available={"selected"}></Botao>
-                <h3>Selecionado</h3>
+                <h3 data-identifier="seat-selected-subtitle">Selecionado</h3>
             </div>
             <div>
                 <Botao available={"true"}></Botao>
-                <h3>Disponível</h3>
+                <h3 data-identifier="seat-available-subtitle">Disponível</h3>
             </div>
             <div>
                 <Botao available={"false"}></Botao>
-                <h3>Indisponível</h3>
+                <h3 data-identifier="seat-unavailable-subtitle">Indisponível</h3>
             </div>
         </StyledSeatsInformation>
     )

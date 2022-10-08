@@ -6,11 +6,11 @@ export default function Footer({infoFilme, infoSession, time}) {
         <FakeFooter/>
         <StyledFooter>
             <div>
-                <img alt={`Poster do filme ${infoFilme.title}`}src={infoFilme.posterURL}/>
+                <img data-identifier="movie-img-preview" alt={`Poster do filme ${infoFilme.title}`}src={infoFilme.posterURL}/>
             </div>
             <Container>
-                <h2>{infoFilme.title}</h2>
-                <h2>{infoSession.weekday}  {time}</h2>
+                <h2 data-identifier="movie-and-session-infos-preview">{infoFilme.title}</h2>
+                <h2 data-identifier="movie-and-session-infos-preview">{infoSession.weekday}  {time}</h2>
             </Container>
         </StyledFooter>
         </>

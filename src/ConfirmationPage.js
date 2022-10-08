@@ -6,24 +6,25 @@ export default function ConfirmationPage({data, setData}) {
 
     let mudou = 0;
     let aux = {...data}
-    const seatsArray = [...aux.reservatedSeats];
+    let seatsArray = [...aux.reservatedSeats];
+    seatsArray = seatsArray.sort((a, b) => a-b);
 
     return (
-        <StyledConfirmationPage>
+        <StyledConfirmationPage data-identifier="movie-session-infos-reserve-finished">
             <h1>Pedido feito<br/>com sucesso!</h1>
             <h2>Filme e sessão</h2>
             <h3>{aux.filme.movie.title}</h3>
             <h3>{aux.filme.day.date} {aux.filme.name}</h3>
             <h2>Ingressos</h2>
-            {seatsArray.map((value, index) => <h3 key={index}>Assento {value}</h3>)}
+            {seatsArray.map((value, index) => <h3 key={index} data-identifier="seat-infos-reserve-finished">Assento {value}</h3>)}
             <h2>Comprador</h2>
-            <h3>Nome: {aux.buyer}</h3>
-            <h3>CPF: {aux.cpf}</h3>
+            <h3 data-identifier="buyer-infos-reserve-finished">Nome: {aux.buyer}</h3>
+            <h3 data-identifier="buyer-infos-reserve-finished">CPF: {aux.cpf}</h3>
             <StyledLink onClick={() => setData({
             "filme": "",
             "buyer": "",
             "cpf": ""
-        })} to="/"><button>Voltar pra home</button></StyledLink>
+        })} to="/"><button data-identifier="back-to-home-btn">Voltar pra home</button></StyledLink>
         </StyledConfirmationPage>
     )
 }

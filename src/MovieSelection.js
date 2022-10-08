@@ -16,7 +16,8 @@ export default function MovieSelection() {
     <MovieSelectionStyle>
         <h1>Selecione o filme</h1>
         <ContainerMovies>
-            {movieList.map((value, index) => <Link to={`/sessoes/${value.id}`} key={index}><img alt={`Poster do filme ${value.title}`} src={value.posterURL}/></Link>)}
+            {movieList.map((value, index) => <Link to={`/sessoes/${value.id}`} key={index}><img data-identifier="movie-outdoor"
+            alt={`Poster do filme ${value.title}`} src={value.posterURL}/></Link>)}
         </ContainerMovies>
     </MovieSelectionStyle>
     )

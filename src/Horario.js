@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 export default function Horario({day}) {
     return (
         <HorarioStyled>
-            <h2>{day.weekday} - {day.date}</h2>
-            {day.showtimes.map((value, index) => <Link key={index} to={`/assentos/${value.id}`}><button>{value.name}</button></Link>)}
+            <h2 data-identifier="session-date">{day.weekday} - {day.date}</h2>
+            {day.showtimes.map((value, index) => <Link key={index} to={`/assentos/${value.id}`}><button data-identifier="hour-minute-btn">{value.name}</button></Link>)}
         </HorarioStyled>
     )
 };

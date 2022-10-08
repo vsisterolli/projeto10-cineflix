@@ -12,9 +12,9 @@ export default function FormUserData({data, setData}) {
     return (
         <StyledFormUserData>
             <h2>Nome do comprador:</h2>
-            <input name="buyer" value={data.buyer} onChange={handleChange} type="text" placeholder="Digite seu nome..."/>
+            <input data-identifier="buyer-name-input" name="buyer" value={data.buyer} onChange={handleChange} type="text" placeholder="Digite seu nome..."/>
             <h2>CPF do comprador:</h2>
-            <input name="cpf" value={data.cpf} onChange={handleChange} type="text" placeholder="Digite seu cpf..."/>
+            <input data-identifier="buyer-cpf-input" name="cpf" value={data.cpf} onChange={handleChange} type="text" placeholder="Digite seu cpf..."/>
         </StyledFormUserData>
     )    
 }

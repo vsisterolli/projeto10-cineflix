@@ -39,7 +39,7 @@ export default function Seat({data, setData, infoSeat, children}) {
     }
 
     return (
-        <StyledSeat onClick={(children) => selectSeat(children)} available={aux.isAvailable}>{children}</StyledSeat>
+        <StyledSeat data-identifier="seat" onClick={(children) => selectSeat(children)} available={aux.isAvailable}>{children}</StyledSeat>
     )
 }
 

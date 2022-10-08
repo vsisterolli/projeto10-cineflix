@@ -13,7 +13,7 @@ export default function MovieAvailablePlaces({data, setData}) {
 
     const {idSessao} = useParams();
     const [infoFilme, setInfoFilme] = React.useState({"seats": [], "movie": {}, "day": {}})
-    console.log(data);
+
     React.useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
         promise.then(response => {setInfoFilme(response.data); setData({...data, "filme": response.data})});
@@ -27,7 +27,7 @@ export default function MovieAvailablePlaces({data, setData}) {
             </StyledSeats>
             <SeatsInformation/>
             <FormUserData data={data} setData={setData}/>
-            <StyledReservateMovie to="/sucesso"><button onClick={() => {
+            <StyledReservateMovie to="/sucesso"><button data-identifier="reservation-btn" onClick={() => {
                 const objPOST = {
                     "ids": [...data.reservatedSeats],
                     "name": data.name,
