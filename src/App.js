@@ -1,5 +1,6 @@
 import GlobalStyle from "./GlobalStyle";
 import Header from "./Header";
+import ConfirmationPage from "./ConfirmationPage";
 import MovieSelection from "./MovieSelection";
 import MovieTimeSchedule from "./MovieTimeSchedule";
 import MovieAvailablePlaces from "./MovieAvailablePlaces";
@@ -22,6 +23,7 @@ export default function App() {
                 <Route path="/" element={<MovieSelection/>}/>
                 <Route path="/sessoes/:idFilme" element={<MovieTimeSchedule/>}/>
                 <Route path="/assentos/:idSessao" element={<MovieAvailablePlaces data={data} setData={setData}/>}/>
+                <Route path="/sucesso" element={<ConfirmationPage data={data} setData={setData}/>}/>
             </Routes>
         </BrowserRouter>
     )

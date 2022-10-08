@@ -13,13 +13,11 @@ export default function MovieAvailablePlaces({data, setData}) {
 
     const {idSessao} = useParams();
     const [infoFilme, setInfoFilme] = React.useState({"seats": [], "movie": {}, "day": {}})
-
+    console.log(data);
     React.useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
         promise.then(response => {setInfoFilme(response.data); setData({...data, "filme": response.data})});
     }, [idSessao])
-
-    React.useEffect(() => {})
 
     return(
         <AvailablePlacesStyled>
