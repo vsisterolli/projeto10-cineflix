@@ -15,31 +15,36 @@ export default function Seat({data, setData, infoSeat, children}) {
     function selectSeat() {
 
         if(infoSeat.isAvailable === false) {
-            alert("Esse assento não está disponível!")
+            alert("Esse assento não está disponível!");
             return;
         }
         
         let reservatedSeatsSet = data.reservatedSeats;
-        if(data.reservatedSeats === undefined)
-            reservatedSeatsSet = new Set();
+        let realSeatsNumbersSet = data.realSeatsNumbers;
 
-        children = Number(children)
-        if(reservatedSeatsSet.has(children)) {
+        if(data.reservatedSeats === undefined) {
+            reservatedSeatsSet = new Set();
+            realSeatsNumbersSet = new Set();
+        }
+
+        if(reservatedSeatsSet.has(infoSeat.id)) {
             infoSeat.isAvailable = true;
-            reservatedSeatsSet.delete(children);
+            reservatedSeatsSet.delete(infoSeat.id);
+            realSeatsNumbersSet.delete(children);
         }
         else {
             infoSeat.isAvailable = "selected";
-            reservatedSeatsSet.add(children);
+            reservatedSeatsSet.add(infoSeat.id);
+            realSeatsNumbersSet.add(children);
         }
 
-        setData({...data, "reservatedSeats": reservatedSeatsSet});
+        setData({...data, "reservatedSeats": reservatedSeatsSet, "realSeatsNumbers": realSeatsNumbersSet});
         setAux({...infoSeat});
 
     }
 
     return (
-        <StyledSeat data-identifier="seat" onClick={(children) => selectSeat(children)} available={aux.isAvailable}>{children}</StyledSeat>
+        <StyledSeat data-identifier="seat" onClick={selectSeat} available={aux.isAvailable}>{children}</StyledSeat>
     )
 }
 

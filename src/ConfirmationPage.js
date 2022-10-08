@@ -6,7 +6,7 @@ export default function ConfirmationPage({data, setData}) {
 
     let mudou = 0;
     let aux = {...data}
-    let seatsArray = [...aux.reservatedSeats];
+    let seatsArray = [...aux.realSeatsNumbers];
     seatsArray = seatsArray.sort((a, b) => a-b);
 
     return (
