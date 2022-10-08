@@ -21,8 +21,7 @@ export default function MovieTimeSchedule() {
             <ContainerHorarios>
                 {infoFilme.days.map((value, index) => <Horario key={index} day={value}/>)}
             </ContainerHorarios>
-            <Footer infoFilme={infoFilme}/>
-            <FakeFooter/>
+            <Footer infoFilme={infoFilme} infoSession={{"weekday": ""}}/>
         </TimeScheduleStyle>
     )
 }
@@ -44,8 +43,5 @@ const ContainerHorarios = styled.div`
     margin: 0 auto;
     padding: 24px;
     width: 95%;
-`
-
-const FakeFooter = styled.div`
-    height: 111px;
+    max-width: 650px;
 `

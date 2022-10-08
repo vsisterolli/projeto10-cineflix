@@ -1,15 +1,25 @@
 import styled from "styled-components"
 
-export default function Footer({infoFilme}) {
+export default function Footer({infoFilme, infoSession, time}) {
     return (
+        <>
+        <FakeFooter/>
         <StyledFooter>
             <div>
-                <img src={infoFilme.posterURL}/>
+                <img alt={`Poster do filme ${infoFilme.title}`}src={infoFilme.posterURL}/>
             </div>
-            <h2>{infoFilme.title}</h2>
+            <Container>
+                <h2>{infoFilme.title}</h2>
+                <h2>{infoSession.weekday}  {time}</h2>
+            </Container>
         </StyledFooter>
+        </>
     )
 }
+
+const FakeFooter = styled.div`
+    height: 117px;
+`
 
 const StyledFooter = styled.footer`
     position: fixed;
@@ -40,10 +50,15 @@ const StyledFooter = styled.footer`
     }
 
     h2 { 
-        margin: 14px;
+        margin-left: 14px;
         font-family: 'Roboto';
         font-size: 26px;
         line-height: 30px;
         color: #293845;
     }
+`
+
+const Container = styled.section`
+    display: flex;
+    flex-direction: column;
 `

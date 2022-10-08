@@ -5,7 +5,7 @@ export default function Horario({day}) {
     return (
         <HorarioStyled>
             <h2>{day.weekday} - {day.date}</h2>
-            {day.showtimes.map((value, index) => <Link to={`/assentos/${value.id}`}><button key={index}>{value.name}</button></Link>)}
+            {day.showtimes.map((value, index) => <Link key={index} to={`/assentos/${value.id}`}><button>{value.name}</button></Link>)}
         </HorarioStyled>
     )
 };
@@ -32,5 +32,6 @@ const HorarioStyled = styled.div`
         border-radius: 3px;
         margin-right: 9px;
         margin-bottom: 30px;
+        cursor: pointer;
     }
 `
